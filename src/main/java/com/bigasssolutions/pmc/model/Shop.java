@@ -7,9 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * Created by Maksim_Karatkevich on 11/15/2017.
- */
 @Entity
 @Table(name = "shop")
 public class Shop {
@@ -18,6 +15,9 @@ public class Shop {
 	private long id;
 	@Column(name = "name")
 	private String name;
+
+	public Shop() {
+	}
 
 	public Shop(long id, String name) {
 		this.id = id;

@@ -30,6 +30,9 @@ public class Event {
 	@JoinColumn(name = "shop_id")
 	private Shop shop;
 
+	public Event() {
+	}
+
 	public Event(long id, Date date, double sum, Category category, Shop shop) {
 		this(id, date, sum, shop);
 		this.category = category;

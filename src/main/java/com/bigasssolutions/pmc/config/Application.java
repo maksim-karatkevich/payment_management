@@ -14,7 +14,7 @@ import javax.persistence.Persistence;
 
 @SpringBootApplication
 @EnableWebMvc
-@ComponentScan(basePackages = { "com.bigasssolutions.pmc.rest" })
+@ComponentScan(basePackages = { "com.bigasssolutions.pmc" })
 @PropertySource("classpath:config.properties")
 public class Application {
 

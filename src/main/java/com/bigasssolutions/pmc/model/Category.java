@@ -11,9 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-/**
- * Created by Maksim_Karatkevich on 11/15/2017.
- */
 @Entity
 @Table(name = "category")
 public class Category {
@@ -24,6 +21,9 @@ public class Category {
 	private String name;
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
 	private List<Event> eventList;
+
+	public Category() {
+	}
 
 	public Category(long id, String name) {
 		this.id = id;

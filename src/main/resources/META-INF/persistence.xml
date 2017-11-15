@@ -3,9 +3,9 @@
              version="1.0">
 
     <persistence-unit name="hibernate" transaction-type="RESOURCE_LOCAL">
-        <class>com.epam.spring.rest.data.Address</class>
-        <class>com.epam.spring.rest.data.Employee</class>
-        <class>com.epam.spring.rest.data.Project</class>
+        <class>com.bigasssolutions.pmc.model.Category</class>
+        <class>com.bigasssolutions.pmc.model.Event</class>
+        <class>com.bigasssolutions.pmc.model.Shop</class>
         <properties>
             <property name="hibernate.bytecode.use_reflection_optimizer" value="false"/>
             <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
