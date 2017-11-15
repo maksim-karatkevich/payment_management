@@ -7,6 +7,7 @@ import java.util.List;
  */
 public interface DataBaseDao <T>{
     void saveEntity(T entity);
-    List<T> listEntityes();
+    List<T> findAll();
     void updateEntity();
+    T findById(long id);
 }

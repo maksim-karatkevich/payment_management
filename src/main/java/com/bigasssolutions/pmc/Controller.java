@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.bigasssolutions.pmc.dao.ShopDaoImpl;
 import com.bigasssolutions.pmc.model.Shop;
 
-/**
- * Created by Maksim_Karatkevich on 11/15/2017.
- */
 @RestController
 public class Controller {
 
@@ -20,8 +17,8 @@ public class Controller {
 	private ShopDaoImpl shopDao;
 
 	@RequestMapping(value = "/shops", method = RequestMethod.GET)
-	public List<Shop> findAll() {
-		return shopDao.findAll();
+	public Shop findAll() {
+		return shopDao.findById(1);
 	}
 
 }
