@@ -1,4 +1,4 @@
-package model;
+package com.bigasssolutions.pmc.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,16 +11,15 @@ import javax.persistence.Table;
  * Created by Maksim_Karatkevich on 11/15/2017.
  */
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "shop")
+public class Shop {
 	@Id
-	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column(name = "name")
 	private String name;
 
-	public Category(long id, String name) {
+	public Shop(long id, String name) {
 		this.id = id;
 		this.name = name;
 	}
@@ -43,7 +42,7 @@ public class Category {
 
 	@Override
 	public String toString() {
-		return "Category{" +
+		return "Shop{" +
 				"id=" + id +
 				", name='" + name + '\'' +
 				'}';

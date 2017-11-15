@@ -1,28 +1,42 @@
-package model;
+package com.bigasssolutions.pmc.model;
+
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
  * Created by Maksim_Karatkevich on 11/15/2017.
  */
 @Entity
-@Table(name = "shop")
-public class Shop {
+@Table(name = "category")
+public class Category {
 	@Id
-	@Column(name = "id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@Column(name = "name")
 	private String name;
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
+	private List<Event> eventList;
 
-	public Shop(long id, String name) {
+	public Category(long id, String name) {
 		this.id = id;
 		this.name = name;
+	}
+
+	public Category(long id, String name, List<Event> eventList) {
+		this(id, name);
+		this.eventList = eventList;
+	}
+
+	public List<Event> getEventList() {
+		return eventList;
 	}
 
 	public long getId() {
@@ -41,9 +55,13 @@ public class Shop {
 		this.name = name;
 	}
 
+	public void setEventList(List<Event> eventList) {
+		this.eventList = eventList;
+	}
+
 	@Override
 	public String toString() {
-		return "Shop{" +
+		return "Category{" +
 				"id=" + id +
 				", name='" + name + '\'' +
 				'}';
