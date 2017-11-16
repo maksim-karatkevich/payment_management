@@ -14,8 +14,7 @@ import com.bigasssolutions.pmc.model.Event;
  * Created by Maksim_Karatkevich on 11/16/2017.
  */
 public class EventDaoImpl implements EventDao {
-	private static final Logger logger = org.slf4j.LoggerFactory.getLogger(
-			com.bigasssolutions.pmc.dao.EventDaoImpl.class);
+	private static final Logger logger = org.slf4j.LoggerFactory.getLogger(EventDaoImpl.class);
 	private static final String FIND_ALL_QUERY = "from Event";
 	private static final String SELECT_CATEGORY_BY_ID_QUERY = "select event from Event event where event.id = (:id)";
 
