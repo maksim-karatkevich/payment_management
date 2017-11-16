@@ -1,9 +1,10 @@
 package com.bigasssolutions.pmc.dao;
 
-import java.util.Date;
+import java.text.ParseException;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.Query;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,20 +32,21 @@ public class EventDaoImpl implements DataBaseDao<Event> {
 	}
 
 	@Override
-	public void update() {
-
-	}
-
-	@Override
 	public Event findById(long id) {
-		return null;
+		Query query = entityManager.createQuery("select event from Event event where event.id = (:id)");
+		query.setParameter("id", Long.valueOf(1));
+		return (Event) query.getSingleResult();
 	}
 
-	public List<Event> getEventsByDate(Date date) {
+	public List<Event> getEventsByPeriod(String start, String end) throws ParseException {
 		return null;
 	}
 
 	public List<Event> getEventsByCategory(long categoryId) {
 		return null;
+	}
+
+	@Override
+	public void update() {
 	}
 }
