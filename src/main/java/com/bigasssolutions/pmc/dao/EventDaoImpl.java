@@ -12,29 +12,37 @@ import org.springframework.stereotype.Repository;
 import com.bigasssolutions.pmc.model.Event;
 
 @Repository
-public class EventDaoImpl implements EventDao {
+public class EventDaoImpl implements DataBaseDao<Event> {
 	private static final Logger logger = org.slf4j.LoggerFactory.getLogger(EventDaoImpl.class);
 	@Autowired
 	private EntityManager entityManager;
 
 	@Override
-	public void saveEvent(Event event) {
+	public void save(Event event) {
 		entityManager.persist(event);
 		logger.info("Event successfully saved. Event details: " + event);
 	}
 
 	@Override
-	public List<Event> listEvents() {
-		return null;
+	public List<Event> findAll() {
+		return entityManager.createQuery("from Event").getResultList();
 	}
 
 	@Override
-	public List<Event> getEventsByCategory(long categoryId) {
-		return null;
+	public void update() {
+
 	}
 
 	@Override
+	public Event findById(long id) {
+		return null;
+	}
+
 	public List<Event> getEventsByDate(Date date) {
+		return null;
+	}
+
+	public List<Event> getEventsByCategory(long categoryId) {
 		return null;
 	}
 }

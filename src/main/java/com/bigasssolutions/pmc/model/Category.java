@@ -25,9 +25,13 @@ public class Category {
 	public Category() {
 	}
 
-	public Category(long id, String name) {
-		this.id = id;
+	public Category(String name) {
 		this.name = name;
+	}
+
+	public Category(long id, String name) {
+		this(name);
+		this.id = id;
 	}
 
 	public Category(long id, String name, List<Event> eventList) {

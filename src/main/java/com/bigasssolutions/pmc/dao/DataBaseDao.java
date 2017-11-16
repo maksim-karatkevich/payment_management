@@ -6,8 +6,8 @@ import java.util.List;
  * Created by Maksim on 11/15/2017.
  */
 public interface DataBaseDao <T>{
-    void saveEntity(T entity);
+    void save(T entity);
     List<T> findAll();
-    void updateEntity();
+    void update();
     T findById(long id);
 }

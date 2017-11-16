@@ -33,6 +33,13 @@ public class Event {
 	public Event() {
 	}
 
+	public Event(Date date, double sum, Category category, Shop shop) {
+		this.date = date;
+		this.sum = sum;
+		this.category = category;
+		this.shop = shop;
+	}
+
 	public Event(long id, Date date, double sum, Category category, Shop shop) {
 		this(id, date, sum, shop);
 		this.category = category;

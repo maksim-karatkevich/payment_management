@@ -19,9 +19,13 @@ public class Shop {
 	public Shop() {
 	}
 
-	public Shop(long id, String name) {
-		this.id = id;
+	public Shop(String name) {
 		this.name = name;
+	}
+
+	public Shop(long id, String name) {
+		this(name);
+		this.id = id;
 	}
 
 	public long getId() {
