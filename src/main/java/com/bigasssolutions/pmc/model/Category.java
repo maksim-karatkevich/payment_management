@@ -11,7 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "category")
@@ -21,7 +21,7 @@ public class Category {
 	private long id;
 	@Column(name = "name", unique = true)
 	private String name;
-	@JsonBackReference
+    @JsonManagedReference
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
 	private List<Event> eventList;
 

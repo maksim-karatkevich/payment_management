@@ -1,6 +1,6 @@
 package com.bigasssolutions.pmc.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import java.util.Date;
 
@@ -25,7 +25,7 @@ public class Event {
 	private Date date;
 	@Column(name = "sum")
 	private double sum;
-	@JsonManagedReference()
+    @JsonBackReference
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id")
 	private Category category;
