@@ -9,13 +9,11 @@ import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.bigasssolutions.pmc.dao.EventDaoImpl;
 import com.bigasssolutions.pmc.model.Category;
 @Repository
 public class CategoryDaoImpl implements CategoryDao{
 
-	private static final Logger logger = org.slf4j.LoggerFactory.getLogger(EventDaoImpl.class);
-
+	private static final Logger logger = org.slf4j.LoggerFactory.getLogger(CategoryDaoImpl.class);
 	private static final String FIND_ALL_QUERY = "from Category";
 	private static final String SELECT_CATEGORY_BY_ID_QUERY = "select category from Category category where category.id = (:id)";
 

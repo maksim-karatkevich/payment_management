@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.bigasssolutions.pmc.dao.EventDaoImpl;
+import com.bigasssolutions.pmc.dao.event.EventDaoImpl;
 import com.bigasssolutions.pmc.model.Event;
 
 public class EventService {
