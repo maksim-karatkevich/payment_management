@@ -1,5 +1,7 @@
 package com.bigasssolutions.pmc.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -23,6 +25,7 @@ public class Event {
 	private Date date;
 	@Column(name = "sum")
 	private double sum;
+	@JsonManagedReference()
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id")
 	private Category category;

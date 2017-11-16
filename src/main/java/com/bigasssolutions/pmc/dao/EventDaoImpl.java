@@ -19,7 +19,9 @@ public class EventDaoImpl implements DataBaseDao<Event> {
 
 	@Override
 	public void save(Event event) {
+		entityManager.getTransaction().begin();
 		entityManager.persist(event);
+		entityManager.getTransaction().commit();
 		logger.info("Event successfully saved. Event details: " + event);
 	}
 

@@ -1,5 +1,7 @@
 package com.bigasssolutions.pmc.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.util.List;
 
 import javax.persistence.Column;
@@ -19,6 +21,7 @@ public class Category {
 	private long id;
 	@Column(name = "name")
 	private String name;
+	@JsonBackReference
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
 	private List<Event> eventList;
 
