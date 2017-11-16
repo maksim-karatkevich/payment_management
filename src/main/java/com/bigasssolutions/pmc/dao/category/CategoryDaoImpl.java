@@ -5,16 +5,12 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import com.bigasssolutions.pmc.dao.EventDaoImpl;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import com.bigasssolutions.pmc.model.Category;
 import org.springframework.stereotype.Repository;
 
-/**
- * Created by Maksim on 11/15/2017.
- */
+import com.bigasssolutions.pmc.dao.EventDaoImpl;
+import com.bigasssolutions.pmc.model.Category;
 @Repository
 public class CategoryDaoImpl implements CategoryDao{
 

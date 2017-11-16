@@ -38,15 +38,21 @@ public class EventDaoImpl implements DataBaseDao<Event> {
 		return (Event) query.getSingleResult();
 	}
 
+	@Override
+	public Event update(Event entity) {
+		return null;
+	}
+
+	@Override
+	public void remove(Event entity) {
+
+	}
+
 	public List<Event> getEventsByPeriod(String start, String end) throws ParseException {
 		return null;
 	}
 
 	public List<Event> getEventsByCategory(long categoryId) {
 		return null;
-	}
-
-	@Override
-	public void update() {
 	}
 }

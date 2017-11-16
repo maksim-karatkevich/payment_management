@@ -8,6 +8,7 @@ import java.util.List;
 public interface DataBaseDao <T>{
     void save(T entity);
     List<T> findAll();
-    void update();
+    T update(T entity);
     T findById(long id);
+    void remove(T entity);
 }
