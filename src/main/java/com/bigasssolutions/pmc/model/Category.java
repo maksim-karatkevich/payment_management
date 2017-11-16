@@ -1,7 +1,5 @@
 package com.bigasssolutions.pmc.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import java.util.List;
 
 import javax.persistence.Column;
@@ -13,13 +11,15 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 @Table(name = "category")
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@Column(name = "name")
+	@Column(name = "name", unique = true)
 	private String name;
 	@JsonBackReference
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
