@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bigasssolutions.pmc.dao.EventDaoImpl;
+import com.bigasssolutions.pmc.dao.event.EventDaoImpl;
 import com.bigasssolutions.pmc.dao.shop.ShopDaoImpl;
 import com.bigasssolutions.pmc.model.Category;
 import com.bigasssolutions.pmc.model.Event;
