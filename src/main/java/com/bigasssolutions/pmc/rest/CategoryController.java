@@ -34,7 +34,7 @@ public class CategoryController {
         return categoryService.update(category);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(method = RequestMethod.DELETE)
     public void remove(@RequestBody Category category) {
         categoryService.remove(category);
     }

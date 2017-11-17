@@ -3,7 +3,9 @@ package com.bigasssolutions.pmc.dao.category;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
+import javax.transaction.Transactional;
 
 import com.bigasssolutions.pmc.dao.EventDaoImpl;
 import org.slf4j.Logger;
@@ -12,9 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.bigasssolutions.pmc.model.Category;
 import org.springframework.stereotype.Repository;
 
-/**
- * Created by Maksim on 11/15/2017.
- */
 @Repository
 public class CategoryDaoImpl implements CategoryDao{
 
@@ -34,28 +33,30 @@ public class CategoryDaoImpl implements CategoryDao{
         logger.info("category saved : " + entity);
 	}
 
-	@Override
-	public List<Category> findAll() {
-	    return entityManager.createQuery(FIND_ALL_QUERY, Category.class).getResultList();
-	}
+    @Override
+    public List<Category> findAll() {
+        return entityManager.createQuery(FIND_ALL_QUERY, Category.class).getResultList();
+    }
 
-	@Override
-	public Category findById(long id) {
-		Query query = entityManager.createQuery(SELECT_CATEGORY_BY_ID_QUERY);
-		query.setParameter("id", id);
-		return (Category) query.getSingleResult();
-	}
+    @Override
+    public Category findById(long id) {
+        Query query = entityManager.createQuery(SELECT_CATEGORY_BY_ID_QUERY);
+        query.setParameter("id", id);
+        return (Category) query.getSingleResult();
+    }
 
-	@Override
-	public Category update(Category category) {
+    @Override
+    public Category update(Category category) {
         Category updatedCategory = entityManager.merge(category);
         logger.info("category updated : " + updatedCategory);
-		return updatedCategory;
-	}
+        return updatedCategory;
+    }
 
     @Override
     public void remove(Category category) {
-        entityManager.remove(category);
+        entityManager.getTransaction().begin();
+        entityManager.remove(entityManager.contains(category) ? category : entityManager.merge(category));
+        entityManager.getTransaction().commit();
     }
 
 }
