@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bigasssolutions.pmc.model.Event;
-import com.bigasssolutions.pmc.parser.CSVEventParser;
 import com.bigasssolutions.pmc.service.event.EventService;
 import com.bigasssolutions.pmc.service.parser.ParserService;
+import com.bigasssolutions.pmc.utils.parser.CSVEventParser;
 
 @RestController
 @RequestMapping(value = "/parser", headers = "Accept=application/json", produces = "application/json")

@@ -1,5 +1,8 @@
 package com.bigasssolutions.pmc.config;
 
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,10 +10,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 @SpringBootApplication
 @EnableWebMvc
@@ -26,9 +25,9 @@ public class Application {
     private String persistenceUnit;
 
     @Bean
-    public EntityManager entityManager() {
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory(persistenceUnit);
-        return entityManagerFactory.createEntityManager();
+    public EntityManagerFactory entityManagerFactory() {
+//        return entityManagerFactory.createEntityManager();
+        return Persistence.createEntityManagerFactory(persistenceUnit);
     }
 
 }

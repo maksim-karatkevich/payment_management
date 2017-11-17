@@ -1,4 +1,4 @@
-package com.bigasssolutions.pmc.parser;
+package com.bigasssolutions.pmc.utils.parser;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,7 +13,6 @@ import java.util.Scanner;
 
 import com.bigasssolutions.pmc.model.Event;
 import com.bigasssolutions.pmc.model.Shop;
-import com.bigasssolutions.pmc.service.parser.FileConverter;
 
 /**
  * Created by Maksim_Karatkevich on 11/16/2017.
