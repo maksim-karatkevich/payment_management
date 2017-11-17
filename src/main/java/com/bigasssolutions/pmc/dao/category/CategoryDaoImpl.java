@@ -3,12 +3,7 @@ package com.bigasssolutions.pmc.dao.category;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
-import javax.transaction.Transactional;
-
-import com.bigasssolutions.pmc.dao.EventDaoImpl;
-import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.bigasssolutions.pmc.model.Category;
@@ -16,8 +11,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class CategoryDaoImpl implements CategoryDao{
-
-	private static final Logger logger = org.slf4j.LoggerFactory.getLogger(EventDaoImpl.class);
 
 	private static final String FIND_ALL_QUERY = "from Category";
 	private static final String SELECT_CATEGORY_BY_ID_QUERY = "select category from Category category where category.id = (:id)";
@@ -30,7 +23,6 @@ public class CategoryDaoImpl implements CategoryDao{
 		entityManager.getTransaction().begin();
 		entityManager.persist(entity);
 		entityManager.getTransaction().commit();
-        logger.info("category saved : " + entity);
 	}
 
     @Override
@@ -47,9 +39,7 @@ public class CategoryDaoImpl implements CategoryDao{
 
     @Override
     public Category update(Category category) {
-        Category updatedCategory = entityManager.merge(category);
-        logger.info("category updated : " + updatedCategory);
-        return updatedCategory;
+        return entityManager.merge(category);
     }
 
     @Override
