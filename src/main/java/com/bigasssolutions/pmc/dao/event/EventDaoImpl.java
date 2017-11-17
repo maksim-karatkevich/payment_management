@@ -7,12 +7,11 @@ import javax.persistence.Query;
 
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.bigasssolutions.pmc.model.Event;
 
-/**
- * Created by Maksim_Karatkevich on 11/16/2017.
- */
+@Repository
 public class EventDaoImpl implements EventDao {
 	private static final Logger logger = org.slf4j.LoggerFactory.getLogger(EventDaoImpl.class);
 	private static final String FIND_ALL_QUERY = "from Event";
@@ -23,10 +22,26 @@ public class EventDaoImpl implements EventDao {
 
 	@Override
 	public void save(Event event) {
-		entityManager.getTransaction().begin();
-		entityManager.persist(event);
-		entityManager.getTransaction().commit();
+		try {
+			entityManager.getTransaction().begin();
+			entityManager.persist(event);
+			entityManager.getTransaction().commit();
+		} finally {
+			entityManager.getTransaction().rollback();
+		}
 		logger.info("event saved: " + event);
+	}
+
+	public void save(List<Event> events) {
+		entityManager.getTransaction().begin();
+		for (Event event : events) {
+			try {
+				entityManager.persist(event);
+			} finally {
+				entityManager.getTransaction().rollback();
+			}
+		}
+		entityManager.getTransaction().commit();
 	}
 
 	@Override

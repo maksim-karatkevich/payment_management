@@ -3,10 +3,12 @@ package com.bigasssolutions.pmc.service.event;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.bigasssolutions.pmc.dao.event.EventDaoImpl;
 import com.bigasssolutions.pmc.model.Event;
 
+@Service
 public class EventService {
 	@Autowired
 	private EventDaoImpl eventDao;
