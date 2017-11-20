@@ -15,7 +15,7 @@ import com.bigasssolutions.pmc.dao.shop.ShopDaoImpl;
 public class AbstractDao {
 	@Autowired
 	private EntityManagerFactory entityManagerFactory;
-	private static final Logger logger = org.slf4j.LoggerFactory.getLogger(ShopDaoImpl.class);
+	protected static final Logger logger = org.slf4j.LoggerFactory.getLogger(ShopDaoImpl.class);
 
 	protected EntityManager getEntityManager() {
 		return entityManagerFactory.createEntityManager();
