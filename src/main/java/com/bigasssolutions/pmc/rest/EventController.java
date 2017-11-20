@@ -14,7 +14,7 @@ import com.bigasssolutions.pmc.service.event.EventService;
 
 @RestController
 @RequestMapping(value = "/events", headers = "Accept=application/json", produces = "application/json")
-public class EventRestController {
+public class EventController {
 
 	@Autowired
 	private EventService eventService;

@@ -1,7 +1,6 @@
 package com.bigasssolutions.pmc.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.CascadeType;
@@ -15,9 +14,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 @Entity
 @Table(name = "event")
-public class Event {
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class Event implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -25,11 +28,12 @@ public class Event {
 	private Date date;
 	@Column(name = "sum")
 	private double sum;
-    @JsonBackReference
+	@JsonManagedReference
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id")
 	private Category category;
-	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonManagedReference
+	@ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
 	@JoinColumn(name = "shop_id")
 	private Shop shop;
 
