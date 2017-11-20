@@ -9,6 +9,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import com.bigasssolutions.pmc.dao.AbstractDao;
+import com.bigasssolutions.pmc.model.Category;
 import com.bigasssolutions.pmc.model.Event;
 import com.bigasssolutions.pmc.model.Shop;
 
@@ -17,6 +18,8 @@ public class EventDaoImpl extends AbstractDao implements EventDao {
 
 	private static final String FIND_ALL_QUERY = "from Event";
 	private static final String SELECT_CATEGORY_BY_ID_QUERY = "select event from Event event where event.id = (:id)";
+	private static final String SELECT_CATEGORY_BY_NAME_QUERY = "select category from Category category where category.name = (:name)";
+	private static final String SELECT_SHOP_BY_NAME_QUERY = "select shop from Shop shop where shop.name = (:name)";
 
 	public void save(List<Event> events) {
 		for (Event event : events) {
@@ -32,13 +35,24 @@ public class EventDaoImpl extends AbstractDao implements EventDao {
 			transaction = entityManager.getTransaction();
 			transaction.begin();
 			String shopName = event.getShop().getName();
-
-			Query query = entityManager.createQuery("select shop from Shop shop where shop.name = (:name)");
-			query.setParameter("name", String.valueOf(shopName));
-			List<Shop> list = query.getResultList();
-			if (list.size() > 0) {
-				Shop shop = list.get(0);
+			Category temp = event.getCategory();
+			String categoryName = null;
+			if (temp != null) {
+				categoryName = event.getCategory().getName();
+			}
+			Query selectShopQuery = entityManager.createQuery(SELECT_SHOP_BY_NAME_QUERY);
+			selectShopQuery.setParameter("name", String.valueOf(shopName));
+			List<Shop> shopList = selectShopQuery.getResultList();
+			if (shopList.size() > 0) {
+				Shop shop = shopList.get(0);
 				event.setShop(shop);
+			}
+			Query selectCategoryQuery = entityManager.createQuery(SELECT_CATEGORY_BY_NAME_QUERY);
+			selectCategoryQuery.setParameter("name", String.valueOf(categoryName));
+			List<Category> list2 = selectCategoryQuery.getResultList();
+			if (list2.size() > 0) {
+				Category category = list2.get(0);
+				event.setCategory(category);
 			}
 			entityManager.persist(event);
 			transaction.commit();

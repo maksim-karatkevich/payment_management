@@ -1,5 +1,6 @@
 package com.bigasssolutions.pmc.model;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -16,8 +17,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "category")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Category {
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
+public class Category implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -30,8 +31,9 @@ public class Category {
 	public Category() {
 	}
 
-	public Category(String name) {
-		this.name = name;
+	public Category(long id, String name, List<Event> eventList) {
+		this(id, name);
+		this.eventList = eventList;
 	}
 
 	public Category(long id, String name) {
@@ -39,9 +41,8 @@ public class Category {
 		this.id = id;
 	}
 
-	public Category(long id, String name, List<Event> eventList) {
-		this(id, name);
-		this.eventList = eventList;
+	public Category(String name) {
+		this.name = name;
 	}
 
 	public List<Event> getEventList() {

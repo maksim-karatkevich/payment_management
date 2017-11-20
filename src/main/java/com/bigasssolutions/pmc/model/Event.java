@@ -33,7 +33,7 @@ public class Event implements Serializable{
 	@JoinColumn(name = "category_id")
 	private Category category;
 	@JsonManagedReference
-	@ManyToOne(cascade = {CascadeType.ALL}, fetch = FetchType.LAZY)
+	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "shop_id")
 	private Shop shop;
 
