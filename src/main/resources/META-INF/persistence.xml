@@ -6,6 +6,7 @@
         <class>com.bigasssolutions.pmc.model.Category</class>
         <class>com.bigasssolutions.pmc.model.Event</class>
         <class>com.bigasssolutions.pmc.model.Shop</class>
+        <class>com.bigasssolutions.pmc.model.CategoryRule</class>
         <properties>
             <property name="hibernate.bytecode.use_reflection_optimizer" value="false"/>
             <property name="hibernate.connection.driver_class" value="org.h2.Driver"/>
@@ -13,7 +14,7 @@
             <property name="hibernate.connection.password" value=""/>
             <property name="hibernate.connection.url" value="jdbc:h2:~/test"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <!--<property name="hibernate.hbm2ddl.auto" value="create-drop"/>-->
             <property name="hibernate.show_sql" value="true"/>
         </properties>
     </persistence-unit>

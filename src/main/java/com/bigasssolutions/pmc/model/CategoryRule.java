@@ -10,14 +10,14 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "category_rules")
+@Table(name = "category_rule")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class CategoryRule {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	@Column(name = "shop_id")
-	private long shop_id;
+	@Column(name = "shop_name", unique = true)
+	private String shop_name;
 	@Column(name = "category_id")
 	private long category_id;
 
@@ -28,12 +28,12 @@ public class CategoryRule {
 		return id;
 	}
 
-	public long getShop_id() {
-		return shop_id;
+	public String getShop_name() {
+		return shop_name;
 	}
 
-	public void setShop_id(long shop_id) {
-		this.shop_id = shop_id;
+	public void setShop_name(String shop_name) {
+		this.shop_name = shop_name;
 	}
 
 	public long getCategory_id() {
