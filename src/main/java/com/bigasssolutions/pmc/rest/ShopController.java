@@ -33,13 +33,13 @@ public class ShopController {
 		return shopService.findAll();
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
-	public Shop update(@RequestBody Shop category) {
-		return shopService.update(category);
+	@RequestMapping(method = RequestMethod.PUT)
+	public Shop update(@RequestBody Shop shop) {
+		return shopService.update(shop);
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-	public void remove(@RequestBody Shop category) {
-		shopService.remove(category);
+	@RequestMapping(method = RequestMethod.DELETE)
+	public void remove(@RequestBody Shop shop) {
+		shopService.remove(shop);
 	}
 }

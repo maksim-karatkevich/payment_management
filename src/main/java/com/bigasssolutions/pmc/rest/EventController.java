@@ -39,7 +39,7 @@ public class EventController {
 		return eventService.update(event);
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(method = RequestMethod.DELETE)
 	public void remove(@RequestBody Event event) {
 		eventService.remove(event);
 	}
