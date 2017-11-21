@@ -42,7 +42,26 @@ public class AbstractDao {
 	}
 
 	public Object update(Object entity) {
-		return getEntityManager().merge(entity);
+		EntityManager entityManager = getEntityManager();
+		EntityTransaction transaction = null;
+		Object o = null;
+		try {
+			transaction = entityManager.getTransaction();
+			transaction.begin();
+			o = entityManager.merge(entity);
+			transaction.commit();
+		}
+		catch (RuntimeException ex) {
+			if (transaction != null && transaction.isActive()) {
+				transaction.rollback();
+				logger.error("-------------------------------- " + ex + "-------------------------------------");
+			}
+		}
+		finally {
+			entityManager.close();
+		}
+
+		return o;
 	}
 
 	public void remove(Object entity) {

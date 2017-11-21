@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -28,11 +29,9 @@ public class Event implements Serializable{
 	private Date date;
 	@Column(name = "sum")
 	private double sum;
-	@JsonManagedReference
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "category_id")
 	private Category category;
-	@JsonManagedReference
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JoinColumn(name = "shop_id")
 	private Shop shop;
@@ -105,8 +104,6 @@ public class Event implements Serializable{
 				"id=" + id +
 				", date=" + date +
 				", sum=" + sum +
-				", category=" + category +
-				", shop=" + shop +
 				'}';
 	}
 }

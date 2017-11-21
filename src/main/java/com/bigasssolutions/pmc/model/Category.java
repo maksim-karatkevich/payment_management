@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -24,7 +24,7 @@ public class Category implements Serializable {
 	private long id;
 	@Column(name = "name", unique = true)
 	private String name;
-	@JsonBackReference
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
 	private List<Event> eventList;
 

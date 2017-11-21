@@ -34,7 +34,7 @@ public class EventController {
 		return eventService.findAll();
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@RequestMapping(method = RequestMethod.PUT)
 	public Event update(@RequestBody Event event) {
 		return eventService.update(event);
 	}
