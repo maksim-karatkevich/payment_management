@@ -43,7 +43,7 @@ public class CSVEventParser {
 		DateFormat df = new SimpleDateFormat("dd.mm.yyyy");
 		Date eventDate = df.parse(date);
 		event.setDate(eventDate);
-		event.setShop(new Shop(values[1].trim()));
+		event.setShop(new Shop(values[1].trim().replace("\"","")));
 		event.setSum(Double.parseDouble(values[2].replace(",", ".")));
 		return event;
 	}
