@@ -34,7 +34,7 @@ public class CategoryController {
         return categoryService.findAll();
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    @RequestMapping(method = RequestMethod.PUT)
     public Category update(@RequestBody Category category) {
         return categoryService.update(category);
     }

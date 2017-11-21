@@ -33,7 +33,7 @@ public class ShopController {
 		return shopService.findAll();
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	@RequestMapping(method = RequestMethod.PUT)
 	public Shop update(@RequestBody Shop category) {
 		return shopService.update(category);
 	}
