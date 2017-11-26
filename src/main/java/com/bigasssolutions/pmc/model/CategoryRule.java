@@ -18,8 +18,13 @@ public class CategoryRule {
 	private long id;
 	@Column(name = "shop_name", unique = true)
 	private String shop_name;
-	@Column(name = "category_id")
-	private long category_id;
+	@Column(name = "category_name")
+	private String category_name;
+
+	public CategoryRule(String shop_name, String category_name) {
+		this.shop_name = shop_name;
+		this.category_name = category_name;
+	}
 
 	public CategoryRule() {
 	}
@@ -36,12 +41,12 @@ public class CategoryRule {
 		this.shop_name = shop_name;
 	}
 
-	public long getCategory_id() {
-		return category_id;
+	public String getCategory_name() {
+		return category_name;
 	}
 
-	public void setCategory_id(long category_id) {
-		this.category_id = category_id;
+	public void setCategory_name(String category_name) {
+		this.category_name = category_name;
 	}
 
 	public void setId(long id) {

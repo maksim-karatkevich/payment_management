@@ -15,6 +15,11 @@ public class CategoryRuleController {
     @Autowired
     private CategoryRuleService categoryRuleService;
 
+    @RequestMapping(value = "/initialize_rules", method = RequestMethod.GET)
+    public void initializeAllRules() {
+        categoryRuleService.saveAll();
+    }
+
     @RequestMapping(method = RequestMethod.POST)
     public void save(@RequestBody CategoryRule categoryRule) {
         categoryRuleService.save(categoryRule);
@@ -29,6 +34,7 @@ public class CategoryRuleController {
     public CategoryRule findById(@PathVariable long id) {
         return categoryRuleService.findById(id);
     }
+
 
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
     public CategoryRule findByName(@PathVariable  String name) {

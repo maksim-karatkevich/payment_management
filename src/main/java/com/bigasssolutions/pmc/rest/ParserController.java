@@ -21,13 +21,10 @@ public class ParserController {
 
 	private final static String FROM_ENCODING = "windows-1251";
 	private final static String TO_ENCODING = "UTF-8";
-	private final static String FILE_URL = "http://localhost:8080/parser?url=C%3A%5CUsers%5CMaksim_Karatkevich%5CDesktop%5Cper%5CVpsk.csv";
-
+	private final static String FILE_URL = "http://localhost:8080/parser?url=C%3A%5CUsers%5CMaksim%5CDesktop%5Crep%5CVpsk.csv";
 
 	@Autowired
 	private ParserService parserService;
-	@Autowired
-	private EventService eventService;
 
 	@RequestMapping(method = RequestMethod.GET)
 	public void parse(@RequestParam("url") String url) {

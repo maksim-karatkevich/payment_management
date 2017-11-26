@@ -3,10 +3,12 @@ package com.bigasssolutions.pmc.dao.category;
 import com.bigasssolutions.pmc.dao.AbstractDao;
 import com.bigasssolutions.pmc.model.Category;
 import com.bigasssolutions.pmc.model.CategoryRule;
+import com.bigasssolutions.pmc.utils.DefaultCategoryRules;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class CategoryRuleDao extends AbstractDao {
@@ -28,6 +30,5 @@ public class CategoryRuleDao extends AbstractDao {
 
     public List<CategoryRule> findAll() {
         return getEntityManager().createQuery(FIND_ALL_QUERY, CategoryRule.class).getResultList();
-
     }
 }
