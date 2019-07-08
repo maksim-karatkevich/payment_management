@@ -41,8 +41,6 @@
         <java-version>1.8</java-version>
         <com.h2database-version>1.4.195</com.h2database-version>
         <org.hibernate-version>5.2.10.Final</org.hibernate-version>
-        <jackson-version>2.8.8</jackson-version>
-        <mockito-version>2.8.9</mockito-version>
     </properties>
 
     <dependencies>
@@ -73,21 +71,6 @@
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>${com.h2database-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${jackson-version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.codehaus.jackson</groupId>
-            <artifactId>jackson-mapper-asl</artifactId>
-            <version>1.9.13</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson-version}</version>
         </dependency>
         <dependency>
             <groupId>commons-dbcp</groupId>
