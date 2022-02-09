@@ -40,7 +40,7 @@
     <properties>
         <java-version>1.8</java-version>
         <com.h2database-version>1.4.195</com.h2database-version>
-        <org.hibernate-version>5.2.10.Final</org.hibernate-version>
+        <org.hibernate-version>5.4.24.Final</org.hibernate-version>
     </properties>
 
     <dependencies>
